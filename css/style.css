@@ -1,0 +1,104 @@
+/* A mobile first approach was used
+  - helps with css parsing for mobile devices
+  - render will be set to mobile as default
+ */
+/*
+* selectors effect all elements
+*/
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  font-family: Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+
+}
+
+hr {
+  color: black;
+  background-color: black;
+  height: 2px;
+  margin-bottom: 5px;
+}
+/* Global styling for the site */
+.flexible-img {
+  height: auto;
+  max-width: 100%;
+}
+.text-header {
+  font-size: 5vw;
+}
+.text-item{
+  font-size: 3vw;
+}
+/* End of global styles */
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.project-header, .work-items, .main-img {
+  text-align: center;
+}
+
+.project-work {
+  margin-top: 20px;
+}
+.author {
+  margin-top: 10px;
+  font-size: 12px;
+}
+/* depending of the size of the screen the font-size will be adjusted  */
+@media screen and (min-width: 400px) {
+  .text-header {
+    font-size: 5vw;
+  }
+  .text-item{
+    font-size: 2vw;
+  }
+  .work-img{
+    width: 100%;
+  }
+}
+
+@media screen and (min-width:650px) {
+/* makes each child of the parent .work a flex item */
+/* try and follow this naming convention as it is inline with the markup */
+.header{
+    margin: 0 auto 35px;
+    justify-content: space-between;
+    text-align: right;
+}
+
+.header,
+.work {
+  display:flex;
+  /* block level elements */
+  /* set a maximum width for the container to it does not stretch forever */
+  margin:0 auto;
+  max-width: 1200px;
+  }
+
+  .work {
+    margin:0 auto 35px;
+  }
+  .work-items {
+    /* how margins work margin: top right bottom left */
+    margin: 10px 7px 10px 0;
+  }
+  /* last-child: only effects the last child of the parent work */
+  .work-items:last-child {
+    /* this makes the last work-item slush to the edge of the screen */
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width:780px){
+  .text-header {
+    font-size: 4vw;
+  }
+  .text-item{
+    font-size: 2vw;
+  }
+}
